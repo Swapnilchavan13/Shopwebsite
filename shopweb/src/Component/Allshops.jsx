@@ -21,7 +21,7 @@ export const Allshops = () => {
 
   return (
     <div className="products-container">
-      <h1>Products</h1>
+      <h1>Shops And Stores</h1>
       <div className="product-list">
         {shops.map((shop) => (
           <div key={shop._id} className="product-card">
