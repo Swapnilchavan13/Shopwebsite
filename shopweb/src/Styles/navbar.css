@@ -1,0 +1,30 @@
+.maindiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(19, 19, 65);
+}
+
+.maindiv img {
+    border-radius: 20%;
+    width: 80px;
+}
+
+.maindiv a {
+    text-decoration: none;
+    color: white;
+}
+
+#searchdiv input,
+#searchdiv button {
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+
+}
+
+#searchdiv button {
+    height: 45px;
+    width: 50px;
+}

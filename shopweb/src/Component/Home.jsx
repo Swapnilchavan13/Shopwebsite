@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from './Navbar';
 
 export const Home = () => {
   return (
     <>
     <h1>Hello Home Page</h1>
-    <Link to="allshops">
+<    Link to="allshops">
     <h1>All Shops</h1>
     </Link>
 

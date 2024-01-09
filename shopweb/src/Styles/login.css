@@ -1,0 +1,41 @@
+.mainlogindiv{
+    border: 1px solid rgb(189, 187, 187);
+    width: fit-content;
+    margin: auto;
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    }
+    #logindiv{
+        margin: auto;
+        background-color: white;
+    }
+    #logindiv label{
+        font-weight: bold;
+    }
+    #logindiv input{
+        width: 270px;
+        height: 30px;
+        border-radius: 5px;
+        border: 0.5px solid grey;
+    }
+    #logindiv p{
+        font-size: 12px;
+        text-align: center;
+    }
+    #logindiv .btn{
+        background-color: #251849;
+        color: white;
+        padding: 8px;
+        width: 280px;
+        border-radius: 10px;
+    }
+    
+    #logindiv .btn2{
+        width:280px;
+        height: 40px;
+        background-color: white;
+        border-radius: 5px;
+        border: 0.5px solid grey;
+    }
