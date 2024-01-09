@@ -1,7 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/addshops.css';
 
 export const AddShops = () => {
+
+  const uid = localStorage.getItem('uid') || 'adminupload';
+    
+  const [uploadCompleted, setUploadCompleted] = useState(false);
+
+    useEffect(() => {
+      const uploadStatus = localStorage.getItem('uploadCompleted') === 'true';
+      setUploadCompleted(uploadStatus);
+    }, []);
+  
+  
+    const [formData, setFormData] = useState({
+      image_one: '',
+      image_two: '',
+      image_three: '',
+      image_four: '',
+      image_five: '',
+    });
+  
+    const handleFileChange = (event, field) => {
+      const file = event.target.files[0];
+      setFormData({ ...formData, [field]: file });
+    };
+  
+    const handleSubmitimg = async (event) => {
+      event.preventDefault();
+      const apiUrl = 'http://62.72.59.146:8001/productimage/';
+  
+      try {
+        const formDataToSend = new FormData();
+        for (const key in formData) {
+          if (formData[key]) {
+            formDataToSend.append(key, formData[key]);
+          }
+        }
+  
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          body: formDataToSend,
+        });
+  
+        const data = await response.json();
+  
+  if (response.ok) {
+    console.log(data);
+    localStorage.setItem('uploadedData', JSON.stringify(data));
+    alert("Shop Images Added")
+    
+    localStorage.setItem('uploadCompleted', 'true'); // Save upload status to local storage
+    window.location.reload();
+  
+  } else {
+    console.error('Error response from server:', data);
+    alert("Product Images Not uploaded Refresh the page")
+  }
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  
+      } catch (error) {
+        console.error('Error uploading data:', error);
+      }
+  
+    };
+  
+    const renderImagePreview = (imageField) => {
+      if (formData[imageField]) {
+        return <img src={URL.createObjectURL(formData[imageField])} alt="Preview" width="100" />;
+      }
+      return null;
+    };
+
+
+
   const [shopName, setShopName] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
@@ -10,11 +85,22 @@ export const AddShops = () => {
   const handleAddShop = () => {
     const apiUrl = 'http://localhost:3010/addShop';
 
+    const storedData = localStorage.getItem('uploadedData') || '{}';
+    const allimgnvid = JSON.parse(storedData);
+    // console.log(allimgnvid.image_one);
+
     const postData = {
+      uid: uid,
       title: shopName,
       location: location,
       description: description,
-      category: category
+      category: category,
+
+      image_one: allimgnvid.image_one,
+      image_two: allimgnvid.image_two,
+      image_three: allimgnvid.image_three,
+      image_four: allimgnvid.image_four,
+      image_five: allimgnvid.image_five,
     };
 
     fetch(apiUrl, {
@@ -39,8 +125,42 @@ export const AddShops = () => {
   
     return (
       <div className="add-shops-container">
-        <h2>Add Shops</h2>
-        <form>
+
+<div className="upload-images">
+
+<h2>Images of Products</h2>
+
+<div className="file-upload">
+
+<input type="file" onChange={(e) => handleFileChange(e, 'image_one')} />
+{renderImagePreview('image_one')}
+<br />
+
+<input type="file" onChange={(e) => handleFileChange(e, 'image_two')} />
+{renderImagePreview('image_two')}
+<br />
+
+<input type="file" onChange={(e) => handleFileChange(e, 'image_three')} />
+{renderImagePreview('image_three')}
+<br />
+
+<input type="file" onChange={(e) => handleFileChange(e, 'image_four')} />
+{renderImagePreview('image_four')}
+<br />
+
+<input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
+{renderImagePreview('image_five')}
+<br />
+
+<button className="upload-button" onClick={handleSubmitimg}>Upload Data</button>
+
+</div>
+</div>
+
+
+{uploadCompleted && (
+  <form>
+          <h2>Add Shops</h2>
           <label htmlFor="shopName">Shop Name:</label>
           <input
             type="text"
@@ -81,6 +201,8 @@ export const AddShops = () => {
             Add Shop
           </button>
         </form>
+)}
+
       </div>
     );
   };

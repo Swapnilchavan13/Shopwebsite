@@ -44,7 +44,9 @@ export const Navbar = () => {
         <Link to="login">
         <h3>{username}</h3>
         </Link>
-
+        <Link to="login">
+        <h3>Orders</h3>
+        </Link>
 
     </div>
   )

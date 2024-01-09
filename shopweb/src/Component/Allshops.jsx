@@ -21,7 +21,7 @@ export const Allshops = () => {
 
   return (
     <div className="products-container">
-      <h1>Shops And Stores</h1>
+      <h1>Shops And Stored</h1>
       <div className="product-list">
         {shops.map((shop) => (
           <div key={shop._id} className="product-card">
@@ -29,6 +29,7 @@ export const Allshops = () => {
             <p>Loaction : {shop.location}</p>
             <p>Description : {shop.description}</p>
             <p>Category: {shop.category}</p>
+            <img src={shop.image_one} alt="" />
           </div>
         ))}
       </div>
