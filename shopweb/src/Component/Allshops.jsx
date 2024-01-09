@@ -26,8 +26,8 @@ export const Allshops = () => {
         {shops.map((shop) => (
           <div key={shop._id} className="product-card">
             <h2>{shop.title}</h2>
-            <h2>{shop.location}</h2>
-            <p>{shop.description}</p>
+            <p>Loaction : {shop.location}</p>
+            <p>Description : {shop.description}</p>
             <p>Category: {shop.category}</p>
           </div>
         ))}

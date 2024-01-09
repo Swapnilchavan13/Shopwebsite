@@ -12,7 +12,7 @@ export const AddShops = () => {
 
     const postData = {
       title: shopName,
-      loaction: location,
+      location: location,
       description: description,
       category: category
     };
