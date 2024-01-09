@@ -4,83 +4,95 @@ import '../Styles/addshops.css';
 export const AddShops = () => {
 
   const uid = localStorage.getItem('uid') || 'adminupload';
-    
+
   const [uploadCompleted, setUploadCompleted] = useState(false);
 
-    useEffect(() => {
-      const uploadStatus = localStorage.getItem('uploadCompleted') === 'true';
-      setUploadCompleted(uploadStatus);
-    }, []);
-  
-  
-    const [formData, setFormData] = useState({
-      image_one: '',
-      image_two: '',
-      image_three: '',
-      image_four: '',
-      image_five: '',
-    });
-  
-    const handleFileChange = (event, field) => {
-      const file = event.target.files[0];
-      setFormData({ ...formData, [field]: file });
-    };
-  
-    const handleSubmitimg = async (event) => {
-      event.preventDefault();
-      const apiUrl = 'http://62.72.59.146:8001/productimage/';
-  
-      try {
-        const formDataToSend = new FormData();
-        for (const key in formData) {
-          if (formData[key]) {
-            formDataToSend.append(key, formData[key]);
-          }
-        }
-  
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          body: formDataToSend,
-        });
-  
-        const data = await response.json();
-  
-  if (response.ok) {
-    console.log(data);
-    localStorage.setItem('uploadedData', JSON.stringify(data));
-    alert("Shop Images Added")
-    
-    localStorage.setItem('uploadCompleted', 'true'); // Save upload status to local storage
-    window.location.reload();
-  
-  } else {
-    console.error('Error response from server:', data);
-    alert("Product Images Not uploaded Refresh the page")
-  }
-  
-  if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
-  }
-  
-      } catch (error) {
-        console.error('Error uploading data:', error);
-      }
-  
-    };
-  
-    const renderImagePreview = (imageField) => {
-      if (formData[imageField]) {
-        return <img src={URL.createObjectURL(formData[imageField])} alt="Preview" width="100" />;
-      }
-      return null;
-    };
+  useEffect(() => {
+    const uploadStatus = localStorage.getItem('uploadCompleted') === 'true';
+    setUploadCompleted(uploadStatus);
+  }, []);
 
+
+  const [formData, setFormData] = useState({
+    image_one: '',
+    image_two: '',
+    image_three: '',
+    image_four: '',
+    image_five: '',
+  });
+
+  const handleFileChange = (event, field) => {
+    const file = event.target.files[0];
+    setFormData({ ...formData, [field]: file });
+  };
+
+  const handleSubmitimg = async (event) => {
+    event.preventDefault();
+    const apiUrl = 'http://62.72.59.146:8001/productimage/';
+
+    try {
+      const formDataToSend = new FormData();
+      for (const key in formData) {
+        if (formData[key]) {
+          formDataToSend.append(key, formData[key]);
+        }
+      }
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(data);
+        localStorage.setItem('uploadedData', JSON.stringify(data));
+        alert("Shop Images Added")
+
+        localStorage.setItem('uploadCompleted', 'true'); // Save upload status to local storage
+        window.location.reload();
+
+      } else {
+        console.error('Error response from server:', data);
+        alert("Product Images Not uploaded Refresh the page")
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+    } catch (error) {
+      console.error('Error uploading data:', error);
+    }
+
+  };
+
+  const renderImagePreview = (imageField) => {
+    if (formData[imageField]) {
+      return <img src={URL.createObjectURL(formData[imageField])} alt="Preview" width="100" />;
+    }
+    return null;
+  };
 
 
   const [shopName, setShopName] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [price1, setPrice1] = useState('');
+  const [price2, setPrice2] = useState('');
+  const [price3, setPrice3] = useState('');
+  const [price4, setPrice4] = useState('');
+  const [price5, setPrice5] = useState('');
+  const [title1, setTitle1] = useState('');
+  const [title2, setTitle2] = useState('');
+  const [title3, setTitle3] = useState('');
+  const [title4, setTitle4] = useState('');
+  const [title5, setTitle5] = useState('');
+
+
+
 
   const handleAddShop = () => {
     const apiUrl = 'http://localhost:3010/addShop';
@@ -115,6 +127,12 @@ export const AddShops = () => {
         console.log('API Response:', data);
         alert("Shop Data Added");
 
+        setUploadCompleted(false);
+        localStorage.removeItem('uploadedData');
+        localStorage.setItem('uploadCompleted', 'false'); // Make sure to set the status in localStorage to false
+
+
+
         window.location.reload(false);
 
       })
@@ -122,44 +140,54 @@ export const AddShops = () => {
         console.error('Fetch Error:', error);
       });
   };
-  
-    return (
-      <div className="add-shops-container">
 
-<div className="upload-images">
-
-<h2>Images of Products</h2>
-
-<div className="file-upload">
-
-<input type="file" onChange={(e) => handleFileChange(e, 'image_one')} />
-{renderImagePreview('image_one')}
-<br />
-
-<input type="file" onChange={(e) => handleFileChange(e, 'image_two')} />
-{renderImagePreview('image_two')}
-<br />
-
-<input type="file" onChange={(e) => handleFileChange(e, 'image_three')} />
-{renderImagePreview('image_three')}
-<br />
-
-<input type="file" onChange={(e) => handleFileChange(e, 'image_four')} />
-{renderImagePreview('image_four')}
-<br />
-
-<input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
-{renderImagePreview('image_five')}
-<br />
-
-<button className="upload-button" onClick={handleSubmitimg}>Upload Data</button>
-
-</div>
-</div>
+  const storedData = localStorage.getItem('uploadedData') || '{}';
+  const allimgnvid = JSON.parse(storedData);
 
 
-{uploadCompleted && (
-  <form>
+
+  return (
+    <div className="add-shops-container">
+
+      <div className="upload-images">
+
+        <h2>Add Images of Shop</h2>
+
+        <div className="file-upload">
+
+          <input type="file" onChange={(e) => handleFileChange(e, 'image_one')} />
+          <br />
+          {renderImagePreview('image_one')}
+          <br />
+
+          <input type="file" onChange={(e) => handleFileChange(e, 'image_two')} />
+          <br />
+          {renderImagePreview('image_two')}
+          <br />
+
+          <input type="file" onChange={(e) => handleFileChange(e, 'image_three')} />
+          <br />
+          {renderImagePreview('image_three')}
+          <br />
+
+          <input type="file" onChange={(e) => handleFileChange(e, 'image_four')} />
+          <br />
+          {renderImagePreview('image_four')}
+          <br />
+
+          <input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
+          <br />
+          {renderImagePreview('image_five')}
+          <br />
+
+
+        </div>
+      </div>
+
+      <button className="upload-button" onClick={handleSubmitimg}>Upload Data</button>
+
+      {uploadCompleted && (
+        <form>
           <h2>Add Shops</h2>
           <label htmlFor="shopName">Shop Name:</label>
           <input
@@ -169,7 +197,7 @@ export const AddShops = () => {
             onChange={(e) => setShopName(e.target.value)}
             className="input-field"
           />
-  
+
           <label htmlFor="location">Location:</label>
           <input
             type="text"
@@ -178,7 +206,7 @@ export const AddShops = () => {
             onChange={(e) => setLocation(e.target.value)}
             className="input-field"
           />
-  
+
           <label htmlFor="description">Description:</label>
           <input
             type="text"
@@ -187,7 +215,7 @@ export const AddShops = () => {
             onChange={(e) => setDescription(e.target.value)}
             className="input-field"
           />
-  
+
           <label htmlFor="category">Category:</label>
           <input
             type="text"
@@ -196,14 +224,25 @@ export const AddShops = () => {
             onChange={(e) => setCategory(e.target.value)}
             className="input-field"
           />
-  
+
+          <br />
+          <img width="100px" src={allimgnvid.image_one} alt="" />
+
+          <label htmlFor="price1">Price:</label>
+          <input
+            type="text"
+            id="price1"
+            value={price1}
+            onChange={(e) => setPrice1(e.target.value)}
+            className="input-field"
+          />
+
           <button type="button" onClick={handleAddShop} className="submit-button">
             Add Shop
           </button>
         </form>
-)}
+      )}
 
-      </div>
-    );
-  };
-  
+    </div>
+  );
+};

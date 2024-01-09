@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Styles/products.css';
+import '../Styles/allshops.css';
 
 export const Allshops = () => {
   const [shops, setShops] = useState([]);
@@ -25,11 +25,13 @@ export const Allshops = () => {
       <div className="product-list">
         {shops.map((shop) => (
           <div key={shop._id} className="product-card">
+            <img src={shop.image_one} alt="" />
+            <div>
             <h2>{shop.title}</h2>
             <p>Loaction : {shop.location}</p>
             <p>Description : {shop.description}</p>
             <p>Category: {shop.category}</p>
-            <img src={shop.image_one} alt="" />
+            </div>
           </div>
         ))}
       </div>
