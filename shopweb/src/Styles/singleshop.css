@@ -1,0 +1,73 @@
+.single-shop-container {
+    /* max-width: 800px; */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.single-shop-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.single-shop-container > :nth-child(3) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.single-shop-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.single-shop-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.single-shop-container p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.single-shop-container h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.single-shop-container > div > div {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.single-shop-container > div > div h2 {
+    color: #333;
+}
+
+.addbutton{
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(28, 28, 51);
+    color: white;
+    border-radius: 10px;
+}
+
+
+.single-shop-container img.partial-image {
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.single-shop-container img.full-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

@@ -1,10 +1,11 @@
+// AllShops.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/allshops.css';
 
 export const Allshops = () => {
   const [shops, setShops] = useState([]);
 
-  // Assuming you have a function to fetch the data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,18 +22,18 @@ export const Allshops = () => {
 
   return (
     <div className="products-container">
-      <h1>Shops And Stored</h1>
+      <h1>Shops And Stores</h1>
       <div className="product-list">
         {shops.map((shop) => (
-          <div key={shop._id} className="product-card">
+          <Link to={`/allshops/${shop._id}`} key={shop._id} className="product-card">
             <img src={shop.image_one} alt="" />
             <div>
-            <h2>{shop.title}</h2>
-            <p>Loaction : {shop.location}</p>
-            <p>Description : {shop.description}</p>
-            <p>Category: {shop.category}</p>
+              <h2>{shop.title}</h2>
+              <p>Location: {shop.location}</p>
+              <p>Description: {shop.description}</p>
+              <p>Category: {shop.category}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
