@@ -67,8 +67,8 @@ export const Singleshop = () => {
                                     <button className='addbutton' onClick={() => handlePurchase(index + 1)}>
                                         Buy Advertising {index + 1}
                                     </button>
-                                    <button onClick={() => toggleShowFullImage(index + 1)}>
-                                        {showFullImage[index + 1] ? 'Show Partial' : 'Show Full'}
+                                    <button className='addbutton' onClick={() => toggleShowFullImage(index + 1)}>
+                                        {showFullImage[index + 1] ? 'Show Partial' : 'Show Full Image'}
                                     </button>
                                 </div>
                             )

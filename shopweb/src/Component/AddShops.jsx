@@ -238,6 +238,8 @@ export const AddShops = () => {
           />
 
           <br />
+          <div className='imgdet'>
+
           <img width="100px" src={allimgnvid.image_one} alt="" />
           <br />
           <label htmlFor="price1">Advertising Cost:</label>
@@ -247,7 +249,8 @@ export const AddShops = () => {
             value={price1}  
             onChange={(e) => setPrice1(e.target.value)}
             className="input-field"
-          />
+            />
+            <br />
 
           <label htmlFor="title1">Title For Image</label>
            <input
@@ -256,9 +259,12 @@ export const AddShops = () => {
             value={title1}
             onChange={(e) => setTitle1(e.target.value)}
             className="input-field"
-          />
-
+            />
+            </div>
 <br />
+
+{allimgnvid.image_two ? (
+<div className='imgdet'>
           <img width="100px" src={allimgnvid.image_two} alt="" />
           <br />
           <label htmlFor="price2">Advertising Cost:</label>
@@ -269,6 +275,7 @@ export const AddShops = () => {
             onChange={(e) => setPrice2(e.target.value)}
             className="input-field"
           />
+            <br />
 
           <label htmlFor="title2">Title For Image</label>
            <input
@@ -278,8 +285,12 @@ export const AddShops = () => {
             onChange={(e) => setTitle2(e.target.value)}
             className="input-field"
           />
-
+          </div>
+) : null}
 <br />
+{allimgnvid.image_three ? (
+
+<div className='imgdet'>
           <img width="100px" src={allimgnvid.image_three} alt="" />
           <br />
           <label htmlFor="price3">Advertising Cost:</label>
@@ -290,6 +301,7 @@ export const AddShops = () => {
             onChange={(e) => setPrice3(e.target.value)}
             className="input-field"
           />
+            <br />
 
           <label htmlFor="title3">Title For Image</label>
            <input
@@ -299,29 +311,40 @@ export const AddShops = () => {
             onChange={(e) => setTitle3(e.target.value)}
             className="input-field"
           />
+          </div>
+) : null}
+
 
 <br />
-          <img width="100px" src={allimgnvid.image_four} alt="" />
-          <br />
-          <label htmlFor="price4">Advertising Cost:</label>
-          <input
-            type="text"
-            id="price4"
-            value={price4}  
-            onChange={(e) => setPrice4(e.target.value)}
-            className="input-field"
-          />
+{allimgnvid.image_four ? (
+  <div className='imgdet'>
+    <img width="100px" src={allimgnvid.image_four} alt="" />
+    <br />
+    <label htmlFor="price4">Advertising Cost:</label>
+    <input
+      type="text"
+      id="price4"
+      value={price4}  
+      onChange={(e) => setPrice4(e.target.value)}
+      className="input-field"
+    />
+    <br />
+    <label htmlFor="title4">Title For Image</label>
+    <input
+      type="text"
+      id="title4"
+      value={title4}
+      onChange={(e) => setTitle4(e.target.value)}
+      className="input-field"
+    />
+  </div>
+) : null}
 
-          <label htmlFor="title4">Title For Image</label>
-           <input
-            type="text"
-            id="title4"
-            value={title4}
-            onChange={(e) => setTitle4(e.target.value)}
-            className="input-field"
-          />
 
 <br />
+{allimgnvid.image_five ? (
+
+<div className='imgdet'>
           <img width="100px" src={allimgnvid.image_five} alt="" />
           <br />
           <label htmlFor="price5">Advertising Cost:</label>
@@ -332,7 +355,7 @@ export const AddShops = () => {
             onChange={(e) => setPrice5(e.target.value)}
             className="input-field"
           />
-
+          <br />
           <label htmlFor="title5">Title For Image</label>
            <input
             type="text"
@@ -341,6 +364,9 @@ export const AddShops = () => {
             onChange={(e) => setTitle5(e.target.value)}
             className="input-field"
           />
+          </div>
+) : null}
+
 
           <button type="button" onClick={handleAddShop} className="submit-button">
             Add Shop
