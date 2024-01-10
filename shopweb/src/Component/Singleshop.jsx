@@ -40,6 +40,14 @@ export const Singleshop = () => {
         }));
     };
 
+    const navigateToLocation = () => {
+        // Assuming shopDetails.location contains the latitude and longitude information
+        // You can replace this with the actual logic based on your data structure
+        const location = shopDetails.location;
+        const googleMapsUrl = `https://www.google.com/maps?q=${location.latitude},${location.longitude}`;
+        window.location.href = googleMapsUrl;
+    };
+
     return (
         <div className="single-shop-container">
             <h1>Single Shop Details</h1>
@@ -47,7 +55,7 @@ export const Singleshop = () => {
                 <>
                     <div>
                         <h2>{shopDetails.title}</h2>
-                        <p>Location: {shopDetails.location}</p>
+                        <p onClick={navigateToLocation}>Location: {shopDetails.location}</p>
                         <p>Description: {shopDetails.description}</p>
                         <p>Category: {shopDetails.category}</p>
                     </div>

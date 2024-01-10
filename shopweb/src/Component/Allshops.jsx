@@ -1,10 +1,10 @@
-// AllShops.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/allshops.css';
 
 export const Allshops = () => {
   const [shops, setShops] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,11 +20,31 @@ export const Allshops = () => {
     fetchData();
   }, []);
 
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filter shops based on the search query
+  const filteredShops = shops.filter((shop) =>
+    shop.location.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="products-container">
+       <div className='searchfun'>
+        <label htmlFor="search">Search by Location:</label>
+        <input
+          type="text"
+          id="search"
+          value={searchQuery}
+          onChange={handleSearch}
+          placeholder="Enter location..."
+        />
+      </div>
       <h1>Shops And Stores</h1>
+     
       <div className="product-list">
-        {shops.map((shop) => (
+        {filteredShops.map((shop) => (
           <Link to={`/allshops/${shop._id}`} key={shop._id} className="product-card">
             <img src={shop.image_one} alt="" />
             <div>

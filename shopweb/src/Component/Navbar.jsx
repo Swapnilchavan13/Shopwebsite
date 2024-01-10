@@ -2,15 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/navbar.css';
 
-export const Navbar = () => {
+export const Navbar = ({ searchInput, onInputChange }) => {
 
-    const [searchInput, setSearchInput] = useState('');
     const username = localStorage.getItem('username') || "Login";
 
-
-    const handleInputChange = (e) => {
-        setSearchInput(e.target.value);
-    };
 
     const handleSearch = () => {
         window.location.reload();
@@ -29,17 +24,16 @@ export const Navbar = () => {
         </Link>
 
         <div id='searchdiv'>
-                    <input 
-                        placeholder='Search Greyowl.in' 
-                        type="text"
-                        list="types-list"
-                        value={searchInput}
-                        onChange={handleInputChange}
-                        onKeyDown={handleKeyDown}
-
-                    />
-                    <button onClick={handleSearch}>🔍</button>
-                </div>
+        <input
+          placeholder='Search Greyowl.in'
+          type="text"
+          list="types-list"
+          value={searchInput}
+          onChange={onInputChange}
+          onKeyDown={handleKeyDown}
+        />
+        <button onClick={handleSearch}>🔍</button>
+      </div>
 
         <Link to="login">
         <h3>{username}</h3>
