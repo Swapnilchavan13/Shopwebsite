@@ -38,10 +38,9 @@ export const Navbar = ({ searchInput, onInputChange }) => {
         <Link to="login">
         <h3>{username}</h3>
         </Link>
-        <Link to="login">
+        <Link to="order">
         <h3>Orders</h3>
         </Link>
-
     </div>
   )
 }

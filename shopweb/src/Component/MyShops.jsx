@@ -31,7 +31,6 @@ export const MyShops = () => {
     <div className="products-container">
      
       <h1>My Shops And Stores</h1>
-     
       <div className="product-list">
         {userShops.map((shop) => (
           <Link to={`/allshops/${shop._id}`} key={shop._id} className="product-card">

@@ -10,19 +10,22 @@ import { MyShops } from './Component/MyShops';
 import { ShopProducts } from './Component/ShopProducts';
 import { Singleshop } from './Component/Singleshop';
 import { Paymentpage } from './Component/Paymentpage';
+import { Order } from './Component/Order';
 
 function App() {
+
   return (
     <BrowserRouter>
     <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="allshops" element={<Allshops />} />
         <Route path="paymentpage" element={<Paymentpage />} />
         <Route path="/allshops/:id" element={<Singleshop />} />
         <Route path="myshops" element={<MyShops />} />
+        <Route path="/order" element={<Order />} />
         <Route path="addshops" element={<AddShops />} />
         <Route path="shopproducts" element={<ShopProducts />} />
       </Routes>
