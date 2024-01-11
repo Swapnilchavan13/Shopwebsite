@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../Styles/singleshop.css';
 
 export const Singleshop = () => {
+    const navigate= useNavigate();
     const { id } = useParams();
     const [shopDetails, setShopDetails] = useState({});
     const [showFullImage, setShowFullImage] = useState({});
@@ -32,7 +33,6 @@ export const Singleshop = () => {
     }, [id]);
 
     const handlePurchase = (advertisingSpace, price, imageSrc) => {
-        // Check if the product is already selected
         const isAlreadySelected = selectedProducts.some((product) => product.advertisingSpace === advertisingSpace);
 
         if (!isAlreadySelected) {
@@ -61,15 +61,15 @@ export const Singleshop = () => {
 
     const submitOrder = () => {
         localStorage.setItem('totalCost', totalCost);
-        alert('Order submitted successfully!');
+        localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+        navigate('/paymentpage');
     };
+    
+    
 
     const handleRemove = (advertisingSpace) => {
-        // Remove the selected product from the state
         setSelectedProducts((prev) => prev.filter((product) => product.advertisingSpace !== advertisingSpace));
-        // Update the total cost
         setTotalCost((prev) => prev - selectedProducts.find((product) => product.advertisingSpace === advertisingSpace).price);
-        // alert(`Advertising ${advertisingSpace} removed.`);
     };
 
     
