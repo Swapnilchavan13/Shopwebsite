@@ -6,6 +6,9 @@ export const Singleshop = () => {
     const { id } = useParams();
     const [shopDetails, setShopDetails] = useState({});
     const [showFullImage, setShowFullImage] = useState({});
+    const [selectedProducts, setSelectedProducts] = useState([]);
+    const [totalCost, setTotalCost] = useState(0);
+
 
     useEffect(() => {
         const fetchShopDetails = async () => {
@@ -28,9 +31,18 @@ export const Singleshop = () => {
         fetchShopDetails();
     }, [id]);
 
-    const handlePurchase = (advertisingSpace) => {
-        // Implement the logic for purchasing the advertising space
-        alert(`You have purchased Advertising ${advertisingSpace}`);
+    const handlePurchase = (advertisingSpace, price, imageSrc) => {
+        // Check if the product is already selected
+        const isAlreadySelected = selectedProducts.some((product) => product.advertisingSpace === advertisingSpace);
+
+        if (!isAlreadySelected) {
+            const title = shopDetails[`title${advertisingSpace}`];
+            setSelectedProducts((prev) => [...prev, { advertisingSpace, price, imageSrc, title }]);
+            setTotalCost((prev) => prev + +price);
+            alert(`You have Selected Advertising ${advertisingSpace}`);
+        } else {
+            alert(`Advertising ${advertisingSpace} is already selected.`);
+        }
     };
 
     const toggleShowFullImage = (advertisingSpace) => {
@@ -40,14 +52,27 @@ export const Singleshop = () => {
         }));
     };
 
+    localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
     const navigateToLocation = () => {
-        // Assuming shopDetails.location contains the latitude and longitude information
-        // You can replace this with the actual logic based on your data structure
         const location = shopDetails.location;
         const googleMapsUrl = `https://www.google.com/maps?q=${location.latitude},${location.longitude}`;
         window.location.href = googleMapsUrl;
     };
 
+    const submitOrder = () => {
+        localStorage.setItem('totalCost', totalCost);
+        alert('Order submitted successfully!');
+    };
+
+    const handleRemove = (advertisingSpace) => {
+        // Remove the selected product from the state
+        setSelectedProducts((prev) => prev.filter((product) => product.advertisingSpace !== advertisingSpace));
+        // Update the total cost
+        setTotalCost((prev) => prev - selectedProducts.find((product) => product.advertisingSpace === advertisingSpace).price);
+        // alert(`Advertising ${advertisingSpace} removed.`);
+    };
+
+    
     return (
         <div className="single-shop-container">
             <h1>Single Shop Details</h1>
@@ -72,8 +97,8 @@ export const Singleshop = () => {
                                     />
                                     <h2>Advertising Space: {shopDetails[`title${index + 1}`]}</h2>
                                     <h4>Advertising Cost: ₹ {shopDetails[`price${index + 1}`]}/- per month</h4>
-                                    <button className='addbutton' onClick={() => handlePurchase(index + 1)}>
-                                        Buy Advertising {index + 1}
+                                    <button className='addbutton' onClick={() => handlePurchase(index + 1, shopDetails[`price${index + 1}`], shopDetails[`image_${el}`])}>
+                                        Buy On Rent
                                     </button>
                                     <button className='addbutton' onClick={() => toggleShowFullImage(index + 1)}>
                                         {showFullImage[index + 1] ? 'Show Partial' : 'Show Full Image'}
@@ -81,6 +106,27 @@ export const Singleshop = () => {
                                 </div>
                             )
                         ))}
+                    </div>
+
+                    <div>
+                        <h2>Selected Advertising</h2>
+                        <div>
+                            {selectedProducts.map((product, index) => (
+                                <div id='selectedadd' key={index}>
+                                    <img width="150px" src={product.imageSrc} alt={`Advertising ${product.advertisingSpace}`} className="selected-product-image" />
+                                    <br />
+                                    Advertising {product.advertisingSpace}: {product.title} - ₹ {product.price}/- per month
+                                   <br />
+                                    <button className='remove-button' onClick={() => handleRemove(product.advertisingSpace)}>
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                        <p>Total Cost: ₹ {totalCost}/-</p>
+                        <button className='submit-button' onClick={submitOrder}>
+                            Submit Order
+                        </button>
                     </div>
                 </>
             ) : (

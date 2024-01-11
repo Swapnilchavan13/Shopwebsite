@@ -72,3 +72,11 @@
     border-radius: 8px;
     margin-bottom: 10px;
 }
+
+#selectedadd{
+    border: 1px solid rgb(68, 68, 68);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: fit-content;
+}
