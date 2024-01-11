@@ -6,13 +6,13 @@ export const Order = () => {
     const isLoggedIn = localStorage.getItem('uid') !== null;
 
     if (!isLoggedIn) {
-        console.log('Redirecting to login');
         navigate('/login');
         return null;
     }
 
-    console.log('Rendering Order component');
-    return (
-        <div>Order</div>
+return (
+        <div>
+            <h1>Order Page</h1>
+        </div>
     );
 }
