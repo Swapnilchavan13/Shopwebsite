@@ -62,24 +62,7 @@ return (
                         <input type="radio" name="paymentOption" value="upi" /> UPI
                     </label>
                 </div>
-
-                {/* Input fields based on selected payment option */}
-                <div className="payment-details">
-                    <label>
-                        Card Number:
-                        <input type="text" name="cardNumber" />
-                    </label>
-                    <label>
-                        Expiry Date:
-                        <input type="text" name="expiryDate" placeholder="MM/YY" />
-                    </label>
-                    <label>
-                        CVV:
-                        <input type="text" name="cvv" />
-                    </label>
-                    {/* Add more input fields based on the selected payment option */}
-                </div>
-
+           
                 <button onClick={handlePayment} className="payment-button">
                     Make Payment
                 </button>
