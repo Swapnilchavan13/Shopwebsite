@@ -1,18 +1,109 @@
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../Styles/orders.css'; // Import the CSS file
 
 export const Order = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const isLoggedIn = localStorage.getItem('uid') !== null;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const uid = localStorage.getItem('uid');
+        const response = await fetch('http://localhost:3010/orders');
+        const data = await response.json();
 
-    if (!isLoggedIn) {
-        navigate('/login');
-        return null;
+        // Filter orders based on the uid
+        const userOrders = data.filter(order => order.uid === uid);
+
+        setOrders(userOrders);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const isLoggedIn = localStorage.getItem('uid') !== null;
+
+  if (!isLoggedIn) {
+    navigate('/login');
+    return null;
+  }
+
+  const handleCancelOrder = async (orderId) => {
+    try {
+      await fetch(`http://localhost:3010/orders/${orderId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+
+      // Remove the canceled order from the state
+      setOrders((prevOrders) => prevOrders.filter(order => order._id !== orderId));
+    } catch (error) {
+      console.error('Error canceling order:', error);
     }
-
-return (
-        <div>
-            <h1>Order Page</h1>
+  };
+  return (
+    <div className="order-container">
+      <h1>Order Page</h1>
+      {loading ? (
+        <p>Loading orders...</p>
+      ) : (
+        <div className="order-table-container">
+          {orders.length === 0 ? (
+            <p>No orders found for the current user.</p>
+          ) : (
+            <table className="order-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Total Cost</th>
+                  <th>Payment Option</th>
+                  <th>Payment Status</th>
+                  <th>Selected Products</th>
+                  <th>Action</th> {/* New column for Cancel button */}
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map(order => (
+                  <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>₹{order.totalCost}/-</td>
+                    <td>{order.paymentOption}</td>
+                    <td>{order.paymentStatus ? 'Successful' : 'Pending'}</td>
+                    <td>
+                      <ul>
+                        {order.selectedProducts.map((product, index) => (
+                          <li key={index}>
+                            <p>
+                              Advertising {product.advertisingSpace}: {product.title} - ₹ {product.price}/- per month
+                            </p>
+                            <img
+                              className="product-image"
+                              src={product.imageSrc}
+                              alt={`Advertising ${product.advertisingSpace}`}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td>
+                      <button onClick={() => handleCancelOrder(order._id)}>Cancel</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};
