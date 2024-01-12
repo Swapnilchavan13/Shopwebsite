@@ -5,7 +5,7 @@ export const Paymentpage = () => {
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [totalCost, setTotalCost] = useState(0);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
-    const [paymentOption, setPaymentOption] = useState('upi'); // New state for selected payment option
+    const [paymentOption, setPaymentOption] = useState('upi');
 
     useEffect(() => {
         const storedSelectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
@@ -16,11 +16,20 @@ export const Paymentpage = () => {
     }, []);
 
     const handlePayment = () => {
+        // Check if uid is present in local storage
+        const uid = localStorage.getItem('uid');
+        if (!uid) {
+            alert('Please login first.');
+            // Navigate to the login page or handle it as per your routing mechanism
+            window.location.href = '/login'; // Replace with your login page route
+            return;
+        }
+
         const paymentData = {
-            uid: localStorage.getItem('uid'), // Assuming you have stored uid in local storage
+            uid,
             selectedProducts,
             totalCost,
-            paymentOption, // Use the selected payment option
+            paymentOption,
             paymentStatus: true,
         };
 
@@ -39,7 +48,6 @@ export const Paymentpage = () => {
                         window.location.href = '/allshops';
                     }, 2500);
                 } else {
-                    // If the server returns a 400 status code, display an alert
                     alert('Space is already sold. Please choose different space.');
                 }
             })
@@ -47,6 +55,7 @@ export const Paymentpage = () => {
                 console.error('Error:', error);
             });
     };
+
 
     const closeModal = () => {
         setPaymentSuccessful(false);
