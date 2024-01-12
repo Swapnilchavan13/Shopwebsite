@@ -16,11 +16,9 @@ export const Paymentpage = () => {
     }, []);
 
     const handlePayment = () => {
-        // Check if uid is present in local storage
         const uid = localStorage.getItem('uid');
         if (!uid) {
             alert('Please login first.');
-            // Navigate to the login page or handle it as per your routing mechanism
             window.location.href = '/login'; // Replace with your login page route
             return;
         }
@@ -33,7 +31,6 @@ export const Paymentpage = () => {
             paymentStatus: true,
         };
 
-        // Make a POST request to your Express API
         fetch('http://localhost:3010/orders', {
             method: 'POST',
             headers: {
@@ -55,7 +52,6 @@ export const Paymentpage = () => {
                 console.error('Error:', error);
             });
     };
-
 
     const closeModal = () => {
         setPaymentSuccessful(false);
