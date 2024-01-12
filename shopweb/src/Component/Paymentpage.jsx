@@ -5,7 +5,7 @@ export const Paymentpage = () => {
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [totalCost, setTotalCost] = useState(0);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
-    const [paymentOption, setPaymentOption] = useState(''); // New state for selected payment option
+    const [paymentOption, setPaymentOption] = useState('upi'); // New state for selected payment option
 
     useEffect(() => {
         const storedSelectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
@@ -43,7 +43,7 @@ export const Paymentpage = () => {
 
         setTimeout(() => {
             window.location.href = '/allshops';
-        }, 3000);
+        }, 2500);
     };
 
     const closeModal = () => {
@@ -64,23 +64,20 @@ export const Paymentpage = () => {
                     </div>
                 ))}
             </div>
-            <p>Total Cost: ₹ {totalCost}/-</p>
+            <h4>Total Cost: ₹ {totalCost}/-</h4>
 
             {!paymentSuccessful ? (
                 <div>
                     <h2>Select Payment Option:</h2>
                     <div className="payment-options">
-                        {/* Credit/Debit Card */}
                         <label>
                             <input type="radio" name="paymentOption" value="creditCard" onChange={() => setPaymentOption('creditCard')} checked={paymentOption === 'creditCard'} /> Credit/Debit Card
                         </label>
 
-                        {/* Net Banking */}
                         <label>
                             <input type="radio" name="paymentOption" value="netBanking" onChange={() => setPaymentOption('netBanking')} checked={paymentOption === 'netBanking'} /> Net Banking
                         </label>
 
-                        {/* UPI */}
                         <label>
                             <input type="radio" name="paymentOption" value="upi" onChange={() => setPaymentOption('upi')} checked={paymentOption === 'upi'} /> UPI
                         </label>
