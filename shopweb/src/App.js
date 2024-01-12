@@ -1,13 +1,12 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Allshops, Products } from './Component/Allshops';
+import { Allshops } from './Component/Allshops';
 import { Home } from './Component/Home';
 import { AddShops } from './Component/AddShops';
 import { Navbar } from './Component/Navbar';
 import { Login } from './Component/Login';
 import { Register } from './Component/Register';
 import { MyShops } from './Component/MyShops';
-import { ShopProducts } from './Component/ShopProducts';
 import { Singleshop } from './Component/Singleshop';
 import { Paymentpage } from './Component/Paymentpage';
 import { Order } from './Component/Order';
@@ -27,7 +26,6 @@ function App() {
         <Route path="myshops" element={<MyShops />} />
         <Route path="/order" element={<Order />} />
         <Route path="addshops" element={<AddShops />} />
-        <Route path="shopproducts" element={<ShopProducts />} />
       </Routes>
     </BrowserRouter>
   );

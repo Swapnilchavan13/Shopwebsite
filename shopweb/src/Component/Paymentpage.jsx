@@ -32,18 +32,20 @@ export const Paymentpage = () => {
             },
             body: JSON.stringify(paymentData),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log(data);
+            .then((response) => {
+                if (response.ok) {
+                    setPaymentSuccessful(true);
+                    setTimeout(() => {
+                        window.location.href = '/allshops';
+                    }, 2500);
+                } else {
+                    // If the server returns a 400 status code, display an alert
+                    alert('Space is already sold. Please choose different space.');
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-        setPaymentSuccessful(true);
-
-        setTimeout(() => {
-            window.location.href = '/allshops';
-        }, 2500);
     };
 
     const closeModal = () => {

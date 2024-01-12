@@ -29,3 +29,10 @@
     object-fit: cover;
   }
   
+  .can{
+    background-color: rgb(194, 2, 2);
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+  }

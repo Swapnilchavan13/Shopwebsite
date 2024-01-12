@@ -161,7 +161,7 @@ export const Singleshop = () => {
                                     <br />
                                     Advertising {product.advertisingSpace}: {product.title} - ₹ {product.price}/- per month
                                    <br />
-                                    <button className='remove-button' onClick={() => handleRemove(product.advertisingSpace)}>
+                                    <button className='can' onClick={() => handleRemove(product.advertisingSpace)}>
                                         Remove
                                     </button>
                                 </div>
