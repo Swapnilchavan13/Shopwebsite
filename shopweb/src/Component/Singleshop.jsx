@@ -85,10 +85,16 @@ export const Singleshop = () => {
     };
 
     const submitOrder = () => {
-        localStorage.setItem('totalCost', totalCost);
-        localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
-        navigate('/paymentpage');
+        if (selectedProducts.length === 0) {
+            alert('Please select at least one product before proceeding to payment.');
+
+        } else {
+            localStorage.setItem('totalCost', totalCost);
+            localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+            navigate('/paymentpage');
+        }
     };
+    
 
     const handleRemove = (advertisingSpace) => {
         setSelectedProducts((prev) => prev.filter((product) => product.advertisingSpace !== advertisingSpace));
@@ -121,7 +127,7 @@ export const Singleshop = () => {
                                             />
                                             <h2>Advertising Space: {shopDetails[`title${index + 1}`]}</h2>
                                             <h4>Advertising Cost: ₹ {shopDetails[`price${index + 1}`]}/- per month</h4>
-                                            <button className='sold'>Sold</button>
+                                            <img className='sold' src="https://media4.giphy.com/media/eicx4WK1uiP1rQfmPd/giphy.gif" alt="" />
                                         </>
                                     ) : (
                                         <>

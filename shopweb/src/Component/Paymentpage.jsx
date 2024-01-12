@@ -52,7 +52,7 @@ export const Paymentpage = () => {
     };
 
     return (
-        <div>
+        <div className="mainpd">
             <h1>Payment Page</h1>
             <h2>Selected Advertising</h2>
             <div className='pdiv'>
