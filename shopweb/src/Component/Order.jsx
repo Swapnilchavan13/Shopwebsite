@@ -11,7 +11,7 @@ export const Order = () => {
     const fetchData = async () => {
       try {
         const uid = localStorage.getItem('uid');
-        const response = await fetch('http://localhost:3010/orders');
+        const response = await fetch('http://62.72.59.146:3010/orders');
         const data = await response.json();
 
         // Filter orders based on the uid
@@ -36,7 +36,7 @@ export const Order = () => {
 
   const handleCancelOrder = async (orderId) => {
     try {
-      await fetch(`http://localhost:3010/orders/${orderId}`, {
+      await fetch(`http://62.72.59.146:3010/orders/${orderId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

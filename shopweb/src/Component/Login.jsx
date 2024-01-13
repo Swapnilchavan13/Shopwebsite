@@ -14,7 +14,7 @@ export const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3010/allusers');
+      const response = await fetch('http://62.72.59.146:3010/allusers');
       const users = await response.json();
 
       // Find the user with matching credentials

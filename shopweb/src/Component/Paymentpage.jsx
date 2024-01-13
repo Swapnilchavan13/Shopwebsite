@@ -48,7 +48,7 @@ export const Paymentpage = () => {
             date
         };
 
-        fetch('http://localhost:3010/orders', {
+        fetch('http://62.72.59.146:3010/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

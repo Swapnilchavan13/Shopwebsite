@@ -8,7 +8,7 @@ export const MyShops = () => {
   useEffect(() => {
     const fetchUserShops = async () => {
       try {
-        const response = await fetch('http://localhost:3010/allshops');
+        const response = await fetch('http://62.72.59.146:3010/allshops');
         const allShops = await response.json();
 
         console.log(allShops)

@@ -14,7 +14,7 @@ export const Singleshop = () => {
     useEffect(() => {
         const fetchShopDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:3010/allshops/${id}`);
+                const response = await fetch(`http://62.72.59.146:3010/allshops/${id}`);
                 const data = await response.json();
                 setShopDetails(data);
 
@@ -34,7 +34,7 @@ export const Singleshop = () => {
     useEffect(() => {
         const fetchOrdersData = async () => {
             try {
-                const response = await fetch('http://localhost:3010/orders');
+                const response = await fetch('http://62.72.59.146:3010/orders');
                 const data = await response.json();
                 setOrdersData(data);
             } catch (error) {

@@ -95,7 +95,7 @@ export const AddShops = () => {
 
 
   const handleAddShop = () => {
-    const apiUrl = 'http://localhost:3010/addShop';
+    const apiUrl = 'http://62.72.59.146:3010/addShop';
 
     const storedData = localStorage.getItem('uploadedData') || '{}';
     const allimgnvid = JSON.parse(storedData);
