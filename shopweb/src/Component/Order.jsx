@@ -64,6 +64,7 @@ export const Order = () => {
               <thead>
                 <tr>
                   <th>Order ID</th>
+                  <th>Date</th>
                   <th>Total Cost</th>
                   <th>Payment Option</th>
                   <th>Payment Status</th>
@@ -75,6 +76,7 @@ export const Order = () => {
                 {orders.map(order => (
                   <tr key={order._id}>
                     <td>{order._id}</td>
+                    <td>{order.date}</td>
                     <td>₹{order.totalCost}/-</td>
                     <td>{order.paymentOption}</td>
                     <td>{order.paymentStatus ? 'Successful' : 'Pending'}</td>

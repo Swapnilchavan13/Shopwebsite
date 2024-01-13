@@ -6,6 +6,22 @@ export const Paymentpage = () => {
     const [totalCost, setTotalCost] = useState(0);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
     const [paymentOption, setPaymentOption] = useState('upi');
+    const [date, setDateRange] = useState("");
+
+    useEffect(() => {
+      const currentDate = new Date();
+      const endDate = new Date(currentDate);
+      endDate.setDate(currentDate.getDate() + 30);
+  
+      const formattedStartDate = currentDate.toLocaleDateString("de-DE");
+      const formattedEndDate = endDate.toLocaleDateString("de-DE");
+  
+      // Construct the date range string
+      const rangeString = `${formattedStartDate} - ${formattedEndDate}`;
+  
+      setDateRange(rangeString);
+    }, []);  
+    
 
     useEffect(() => {
         const storedSelectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
@@ -29,6 +45,7 @@ export const Paymentpage = () => {
             totalCost,
             paymentOption,
             paymentStatus: true,
+            date
         };
 
         fetch('http://localhost:3010/orders', {
@@ -51,7 +68,7 @@ export const Paymentpage = () => {
             .catch((error) => {
                 console.error('Error:', error);
             });
-    };
+        };
 
     const closeModal = () => {
         setPaymentSuccessful(false);
