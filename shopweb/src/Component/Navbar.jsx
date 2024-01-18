@@ -8,8 +8,6 @@ export const Navbar = ({ searchInput, onInputChange }) => {
 
     const isloggedin = localStorage.getItem('isLoginSuccessful') || false;
 
-
-
     const handleSearch = () => {
         window.location.reload();
     };
