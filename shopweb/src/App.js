@@ -10,6 +10,12 @@ import { MyShops } from './Component/MyShops';
 import { Singleshop } from './Component/Singleshop';
 import { Paymentpage } from './Component/Paymentpage';
 import { Order } from './Component/Order';
+import { Admin } from './Component/Admin';
+import { Adallshops } from './Admincomponent/Adallshops';
+import { Adaddshops } from './Admincomponent/Adaddshops';
+import { Adallorders } from './Admincomponent/Adallorders';
+
+
 
 function App() {
 
@@ -26,6 +32,11 @@ function App() {
         <Route path="myshops" element={<MyShops />} />
         <Route path="/order" element={<Order />} />
         <Route path="addshops" element={<AddShops />} />
+        <Route path="admin9049" element={<Admin />} />
+        <Route path="adaddshops" element={<Adaddshops />} />
+        <Route path="adallshops" element={<Adallshops />} />
+        <Route path="adallorders" element={<Adallorders />} />
+
       </Routes>
     </BrowserRouter>
   );
