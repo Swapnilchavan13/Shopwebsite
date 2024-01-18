@@ -15,8 +15,6 @@ import { Adallshops } from './Admincomponent/Adallshops';
 import { Adaddshops } from './Admincomponent/Adaddshops';
 import { Adallorders } from './Admincomponent/Adallorders';
 
-
-
 function App() {
 
   return (
