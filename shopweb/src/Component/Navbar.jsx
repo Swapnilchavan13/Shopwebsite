@@ -6,16 +6,19 @@ export const Navbar = ({ searchInput, onInputChange }) => {
 
     const username = localStorage.getItem('username') || "Login";
 
+    const isloggedin = localStorage.getItem('isLoginSuccessful') || false;
+
+
 
     const handleSearch = () => {
         window.location.reload();
     };
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    };
+    // const handleKeyDown = (e) => {
+    //     if (e.key === 'Enter') {
+    //         handleSearch();
+    //     }
+    // };
 
   return (
     <div className='maindiv'>
@@ -35,9 +38,15 @@ export const Navbar = ({ searchInput, onInputChange }) => {
         <button onClick={handleSearch}>🔍</button>
       </div> */}
 
+{isloggedin ? (
         <Link to="addshops">
-        <h3>Add Shops</h3>
+          <h3>Add Shop</h3>
         </Link>
+      ) : (
+        <Link to="login">
+          <h3>Login to Add Shop</h3>
+        </Link>
+      )}
         <Link to="allshops">
         <h3>All Shops</h3>
         </Link>
