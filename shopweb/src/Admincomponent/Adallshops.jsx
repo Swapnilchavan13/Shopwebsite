@@ -42,8 +42,9 @@ export const Adallshops = () => {
   );
 
   return (
-    <div className="products-container">
+    <>
         <Addnavbar />
+    <div className="products-container">
       <div className='searchfun'>
         <label htmlFor="search">Search by Location:</label>
         <input
@@ -73,5 +74,6 @@ export const Adallshops = () => {
         ))}
       </div>
     </div>
+        </>
   );
 };
