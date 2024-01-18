@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/addshops.css';
+import { Addnavbar } from './Addnavbar';
 
 export const Adaddshops = () => {
 
@@ -159,7 +160,11 @@ export const Adaddshops = () => {
 
 
   return (
-    <div className="add-shops-container">
+
+    <div>
+
+        <Addnavbar />
+      <div className="add-shops-container">
 
       <div className="upload-images">
 
@@ -274,7 +279,7 @@ export const Adaddshops = () => {
             value={price2}  
             onChange={(e) => setPrice2(e.target.value)}
             className="input-field"
-          />
+            />
             <br />
 
           <label htmlFor="title2">Title For Image</label>
@@ -375,5 +380,6 @@ export const Adaddshops = () => {
       )}
 
     </div>
+</div>
   );
 };

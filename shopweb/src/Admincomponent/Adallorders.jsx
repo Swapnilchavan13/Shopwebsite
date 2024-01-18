@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/orders.css'; // Import the CSS file
+import { Addnavbar } from './Addnavbar';
 
 export const Adallorders = () => {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ export const Adallorders = () => {
 
   return (
     <div className="order-container">
+        <Addnavbar />
       <h1>All Orders</h1>
       {loading ? (
         <p>Loading orders...</p>

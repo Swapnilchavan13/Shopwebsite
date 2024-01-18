@@ -1,0 +1,6 @@
+.adnav{
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    background-color: rgb(226, 224, 224);
+}

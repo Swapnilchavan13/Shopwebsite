@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/allshops.css';
+import { Addnavbar } from './Addnavbar';
 
 export const Adallshops = () => {
   const [shops, setShops] = useState([]);
@@ -42,6 +43,7 @@ export const Adallshops = () => {
 
   return (
     <div className="products-container">
+        <Addnavbar />
       <div className='searchfun'>
         <label htmlFor="search">Search by Location:</label>
         <input
