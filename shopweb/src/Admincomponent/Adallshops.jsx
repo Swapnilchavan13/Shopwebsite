@@ -67,7 +67,7 @@ export const Adallshops = () => {
                 <p>Location: {shop.location}</p>
                 <p>Description: {shop.description}</p>
                 <p>Category: {shop.category}</p>
-            <button onClick={() => handleDelete(shop._id)}>Delete</button>
+            <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
               </div>
             </Link>
           </div>
