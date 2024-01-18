@@ -97,7 +97,7 @@ export const Order = () => {
                       </ul>
                     </td>
                     <td>
-                      <button className='can' onClick={() => handleCancelOrder(order._id)}>Cancel</button>
+                      {/* <button className='can' onClick={() => handleCancelOrder(order._id)}>Cancel</button> */}
                     </td>
                   </tr>
                 ))}

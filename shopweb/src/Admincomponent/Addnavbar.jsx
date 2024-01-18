@@ -6,13 +6,13 @@ export const Addnavbar = () => {
   return (
     <div className='adnav'>
       <Link to='/adaddshops'>
-      <h3>Add Shop</h3>
+      <h2>Add Shop</h2>
       </Link>
       <Link to='/adallorders'>
-      <h3>All Orders</h3>
+      <h2>All Orders</h2>
       </Link>
       <Link to='/adallshops'>
-      <h3>All Shop</h3>
+      <h2>All Shop</h2>
       </Link>
     </div>
   )
