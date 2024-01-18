@@ -16,7 +16,6 @@ import { Adaddshops } from './Admincomponent/Adaddshops';
 import { Adallorders } from './Admincomponent/Adallorders';
 
 function App() {
-
   return (
     <BrowserRouter>
     <Navbar />
@@ -34,7 +33,6 @@ function App() {
         <Route path="adaddshops" element={<Adaddshops />} />
         <Route path="adallshops" element={<Adallshops />} />
         <Route path="adallorders" element={<Adallorders />} />
-
       </Routes>
     </BrowserRouter>
   );
