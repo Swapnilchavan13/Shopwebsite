@@ -142,9 +142,7 @@ export const Adaddshops = () => {
 
         setUploadCompleted(false);
         localStorage.removeItem('uploadedData');
-        localStorage.setItem('uploadCompleted', 'false'); // Make sure to set the status in localStorage to false
-
-
+        localStorage.setItem('uploadCompleted', 'false');
 
         window.location.reload(false);
 
@@ -196,7 +194,6 @@ export const Adaddshops = () => {
             <br />
             {renderImagePreview('image_five')}
             <br />
-
 
           </div>
         </div>
