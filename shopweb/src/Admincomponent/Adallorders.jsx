@@ -20,11 +20,8 @@ export const Adallorders = () => {
         console.error('Error fetching orders:', error);
       }
     };
-
     fetchData();
   }, []);
-
-
 
   const handleCancelOrder = async (orderId) => {
     try {

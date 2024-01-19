@@ -121,11 +121,11 @@ export const Adaddshops = () => {
       price4: price4,
       price5: price5,
 
-      title1:title1,
-      title2:title2,
-      title3:title3,
-      title4:title4,
-      title5:title5,
+      title1: title1,
+      title2: title2,
+      title3: title3,
+      title4: title4,
+      title5: title5,
     };
 
     fetch(apiUrl, {
@@ -163,223 +163,223 @@ export const Adaddshops = () => {
 
     <div>
 
-        <Addnavbar />
+      <Addnavbar />
       <div className="add-shops-container">
 
-      <div className="upload-images">
+        <div className="upload-images">
 
-        <h2>Add Images of Shop</h2>
+          <h2>Add Images of Shop</h2>
 
-        <div className="file-upload">
+          <div className="file-upload">
 
-          <input type="file" onChange={(e) => handleFileChange(e, 'image_one')} />
-          <br />
-          {renderImagePreview('image_one')}
-          <br />
+            <input type="file" onChange={(e) => handleFileChange(e, 'image_one')} />
+            <br />
+            {renderImagePreview('image_one')}
+            <br />
 
-          <input type="file" onChange={(e) => handleFileChange(e, 'image_two')} />
-          <br />
-          {renderImagePreview('image_two')}
-          <br />
+            <input type="file" onChange={(e) => handleFileChange(e, 'image_two')} />
+            <br />
+            {renderImagePreview('image_two')}
+            <br />
 
-          <input type="file" onChange={(e) => handleFileChange(e, 'image_three')} />
-          <br />
-          {renderImagePreview('image_three')}
-          <br />
+            <input type="file" onChange={(e) => handleFileChange(e, 'image_three')} />
+            <br />
+            {renderImagePreview('image_three')}
+            <br />
 
-          <input type="file" onChange={(e) => handleFileChange(e, 'image_four')} />
-          <br />
-          {renderImagePreview('image_four')}
-          <br />
+            <input type="file" onChange={(e) => handleFileChange(e, 'image_four')} />
+            <br />
+            {renderImagePreview('image_four')}
+            <br />
 
-          <input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
-          <br />
-          {renderImagePreview('image_five')}
-          <br />
+            <input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
+            <br />
+            {renderImagePreview('image_five')}
+            <br />
 
 
+          </div>
         </div>
-      </div>
 
-      <button className="upload-button" onClick={handleSubmitimg}>Upload Data</button>
+        <button className="upload-button" onClick={handleSubmitimg}>Upload Data</button>
 
-      {uploadCompleted && (
-        <form>
-          <h2>Add Shops</h2>
-          <label htmlFor="shopName">Shop Name:</label>
-          <input
-            type="text"
-            id="shopName"
-            value={shopName}
-            onChange={(e) => setShopName(e.target.value)}
-            className="input-field"
-          />
-
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="input-field"
-          />
-
-          <label htmlFor="description">Description:</label>
-          <input
-            type="text"
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="input-field"
-          />
-
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="input-field"
-          />
-
-          <br />
-          <div className='imgdet'>
-
-          <img width="100px" src={allimgnvid.image_one} alt="" />
-          <br />
-          <label htmlFor="price1">Advertising Cost:</label>
-          <input
-            type="text"
-            id="price1"
-            value={price1}  
-            onChange={(e) => setPrice1(e.target.value)}
-            className="input-field"
+        {uploadCompleted && (
+          <form>
+            <h2>Add Shops</h2>
+            <label htmlFor="shopName">Shop Name:</label>
+            <input
+              type="text"
+              id="shopName"
+              value={shopName}
+              onChange={(e) => setShopName(e.target.value)}
+              className="input-field"
             />
+
+            <label htmlFor="location">Location:</label>
+            <input
+              type="text"
+              id="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="input-field"
+            />
+
+            <label htmlFor="description">Description:</label>
+            <input
+              type="text"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="input-field"
+            />
+
+            <label htmlFor="category">Category:</label>
+            <input
+              type="text"
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="input-field"
+            />
+
             <br />
+            <div className='imgdet'>
 
-          <label htmlFor="title1">Title For Image</label>
-           <input
-            type="text"
-            id="title1"
-            value={title1}
-            onChange={(e) => setTitle1(e.target.value)}
-            className="input-field"
-            />
+              <img width="100px" src={allimgnvid.image_one} alt="" />
+              <br />
+              <label htmlFor="price1">Advertising Cost:</label>
+              <input
+                type="text"
+                id="price1"
+                value={price1}
+                onChange={(e) => setPrice1(e.target.value)}
+                className="input-field"
+              />
+              <br />
+
+              <label htmlFor="title1">Title For Image</label>
+              <input
+                type="text"
+                id="title1"
+                value={title1}
+                onChange={(e) => setTitle1(e.target.value)}
+                className="input-field"
+              />
             </div>
-<br />
-
-{allimgnvid.image_two ? (
-<div className='imgdet'>
-          <img width="100px" src={allimgnvid.image_two} alt="" />
-          <br />
-          <label htmlFor="price2">Advertising Cost:</label>
-          <input
-            type="text"
-            id="price2"
-            value={price2}  
-            onChange={(e) => setPrice2(e.target.value)}
-            className="input-field"
-            />
             <br />
 
-          <label htmlFor="title2">Title For Image</label>
-           <input
-            type="text"
-            id="title2"
-            value={title2}
-            onChange={(e) => setTitle2(e.target.value)}
-            className="input-field"
-          />
-          </div>
-) : null}
-<br />
-{allimgnvid.image_three ? (
+            {allimgnvid.image_two ? (
+              <div className='imgdet'>
+                <img width="100px" src={allimgnvid.image_two} alt="" />
+                <br />
+                <label htmlFor="price2">Advertising Cost:</label>
+                <input
+                  type="text"
+                  id="price2"
+                  value={price2}
+                  onChange={(e) => setPrice2(e.target.value)}
+                  className="input-field"
+                />
+                <br />
 
-<div className='imgdet'>
-          <img width="100px" src={allimgnvid.image_three} alt="" />
-          <br />
-          <label htmlFor="price3">Advertising Cost:</label>
-          <input
-            type="text"
-            id="price3"
-            value={price3}  
-            onChange={(e) => setPrice3(e.target.value)}
-            className="input-field"
-          />
+                <label htmlFor="title2">Title For Image</label>
+                <input
+                  type="text"
+                  id="title2"
+                  value={title2}
+                  onChange={(e) => setTitle2(e.target.value)}
+                  className="input-field"
+                />
+              </div>
+            ) : null}
             <br />
+            {allimgnvid.image_three ? (
 
-          <label htmlFor="title3">Title For Image</label>
-           <input
-            type="text"
-            id="title3"
-            value={title3}
-            onChange={(e) => setTitle3(e.target.value)}
-            className="input-field"
-          />
-          </div>
-) : null}
+              <div className='imgdet'>
+                <img width="100px" src={allimgnvid.image_three} alt="" />
+                <br />
+                <label htmlFor="price3">Advertising Cost:</label>
+                <input
+                  type="text"
+                  id="price3"
+                  value={price3}
+                  onChange={(e) => setPrice3(e.target.value)}
+                  className="input-field"
+                />
+                <br />
 
-
-<br />
-{allimgnvid.image_four ? (
-  <div className='imgdet'>
-    <img width="100px" src={allimgnvid.image_four} alt="" />
-    <br />
-    <label htmlFor="price4">Advertising Cost:</label>
-    <input
-      type="text"
-      id="price4"
-      value={price4}  
-      onChange={(e) => setPrice4(e.target.value)}
-      className="input-field"
-    />
-    <br />
-    <label htmlFor="title4">Title For Image</label>
-    <input
-      type="text"
-      id="title4"
-      value={title4}
-      onChange={(e) => setTitle4(e.target.value)}
-      className="input-field"
-    />
-  </div>
-) : null}
+                <label htmlFor="title3">Title For Image</label>
+                <input
+                  type="text"
+                  id="title3"
+                  value={title3}
+                  onChange={(e) => setTitle3(e.target.value)}
+                  className="input-field"
+                />
+              </div>
+            ) : null}
 
 
-<br />
-{allimgnvid.image_five ? (
+            <br />
+            {allimgnvid.image_four ? (
+              <div className='imgdet'>
+                <img width="100px" src={allimgnvid.image_four} alt="" />
+                <br />
+                <label htmlFor="price4">Advertising Cost:</label>
+                <input
+                  type="text"
+                  id="price4"
+                  value={price4}
+                  onChange={(e) => setPrice4(e.target.value)}
+                  className="input-field"
+                />
+                <br />
+                <label htmlFor="title4">Title For Image</label>
+                <input
+                  type="text"
+                  id="title4"
+                  value={title4}
+                  onChange={(e) => setTitle4(e.target.value)}
+                  className="input-field"
+                />
+              </div>
+            ) : null}
 
-<div className='imgdet'>
-          <img width="100px" src={allimgnvid.image_five} alt="" />
-          <br />
-          <label htmlFor="price5">Advertising Cost:</label>
-          <input
-            type="text"
-            id="price5"
-            value={price5}  
-            onChange={(e) => setPrice5(e.target.value)}
-            className="input-field"
-          />
-          <br />
-          <label htmlFor="title5">Title For Image</label>
-           <input
-            type="text"
-            id="title5"
-            value={title5}
-            onChange={(e) => setTitle5(e.target.value)}
-            className="input-field"
-          />
-          </div>
-) : null}
+
+            <br />
+            {allimgnvid.image_five ? (
+
+              <div className='imgdet'>
+                <img width="100px" src={allimgnvid.image_five} alt="" />
+                <br />
+                <label htmlFor="price5">Advertising Cost:</label>
+                <input
+                  type="text"
+                  id="price5"
+                  value={price5}
+                  onChange={(e) => setPrice5(e.target.value)}
+                  className="input-field"
+                />
+                <br />
+                <label htmlFor="title5">Title For Image</label>
+                <input
+                  type="text"
+                  id="title5"
+                  value={title5}
+                  onChange={(e) => setTitle5(e.target.value)}
+                  className="input-field"
+                />
+              </div>
+            ) : null}
 
 
-          <button type="button" onClick={handleAddShop} className="submit-button">
-            Add Shop
-          </button>
-        </form>
-      )}
+            <button type="button" onClick={handleAddShop} className="submit-button">
+              Add Shop
+            </button>
+          </form>
+        )}
 
+      </div>
     </div>
-</div>
   );
 };
