@@ -43,37 +43,37 @@ export const Adallshops = () => {
 
   return (
     <>
-        <Addnavbar />
-    <div className="products-container">
-      <div className='searchfun'>
-        <label htmlFor="search">Search by Location:</label>
-        <input
-          type="text"
-          id="search"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="Enter location..."
-        />
+      <Addnavbar />
+      <div className="products-container">
+        <div className='searchfun'>
+          <label htmlFor="search">Search by Location:</label>
+          <input
+            type="text"
+            id="search"
+            value={searchQuery}
+            onChange={handleSearch}
+            placeholder="Enter location..."
+          />
+        </div>
+        <h1>Shops And Stores</h1>
+
+        <div className="product-list">
+          {filteredShops.map((shop) => (
+            <div key={shop._id} className="product-card">
+              <Link to={`/allshops/${shop._id}`}>
+                <img src={shop.image_one} alt="" />
+                <div>
+                  <h2>{shop.title}</h2>
+                  <p>Location: {shop.location}</p>
+                  <p>Description: {shop.description}</p>
+                  <p>Category: {shop.category}</p>
+                  <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-      <h1>Shops And Stores</h1>
-     
-      <div className="product-list">
-        {filteredShops.map((shop) => (
-          <div key={shop._id} className="product-card">
-            <Link to={`/allshops/${shop._id}`}>
-              <img src={shop.image_one} alt="" />
-              <div>
-                <h2>{shop.title}</h2>
-                <p>Location: {shop.location}</p>
-                <p>Description: {shop.description}</p>
-                <p>Category: {shop.category}</p>
-            <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-        </>
+    </>
   );
 };
