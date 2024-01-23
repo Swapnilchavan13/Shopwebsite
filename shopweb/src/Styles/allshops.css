@@ -5,6 +5,13 @@
     padding: 20px;
   }
   
+  .product-list1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

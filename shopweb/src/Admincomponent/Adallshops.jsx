@@ -57,7 +57,7 @@ export const Adallshops = () => {
         </div>
         <h1>Shops And Stores</h1>
 
-        <div className="product-list">
+        <div className="product-list1">
           {filteredShops.map((shop) => (
             <div key={shop._id} className="product-card">
               <Link to={`/allshops/${shop._id}`}>
