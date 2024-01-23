@@ -30,9 +30,9 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="addshops" element={<AddShops />} />
         <Route path="admin9049" element={<Admin />} />
-        <Route path="adaddshops" element={<Adaddshops />} />
-        <Route path="adallshops" element={<Adallshops />} />
-        <Route path="adallorders" element={<Adallorders />} />
+        <Route path="admin9049/adaddshops" element={<Adaddshops />} />
+        <Route path="admin9049/adallshops" element={<Adallshops />} />
+        <Route path="admin9049/adallorders" element={<Adallorders />} />
       </Routes>
     </BrowserRouter>
   );
