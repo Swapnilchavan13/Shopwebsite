@@ -91,9 +91,6 @@ export const AddShops = () => {
   const [title4, setTitle4] = useState('');
   const [title5, setTitle5] = useState('');
 
-
-
-
   const handleAddShop = () => {
     const apiUrl = 'http://62.72.59.146:3010/addShop';
 
@@ -143,8 +140,6 @@ export const AddShops = () => {
         localStorage.removeItem('uploadedData');
         localStorage.setItem('uploadCompleted', 'false'); // Make sure to set the status in localStorage to false
 
-
-
         window.location.reload(false);
 
       })
@@ -155,8 +150,6 @@ export const AddShops = () => {
 
   const storedData = localStorage.getItem('uploadedData') || '{}';
   const allimgnvid = JSON.parse(storedData);
-
-
 
   return (
     <div className="add-shops-container">
@@ -239,7 +232,6 @@ export const AddShops = () => {
 
           <br />
           <div className='imgdet'>
-
             <img width="100px" src={allimgnvid.image_one} alt="" />
             <br />
             <label htmlFor="price1">Advertising Cost:</label>
