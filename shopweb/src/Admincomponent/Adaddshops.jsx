@@ -4,7 +4,7 @@ import { Addnavbar } from './Addnavbar';
 
 export const Adaddshops = () => {
 
-  const uid = localStorage.getItem('uid') || 'adminupload';
+  const uid = 'adminupload';
 
   const [uploadCompleted, setUploadCompleted] = useState(false);
 
