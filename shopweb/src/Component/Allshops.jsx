@@ -31,7 +31,7 @@ export const Allshops = () => {
 
   return (
     <div className="products-container">
-       <div className='searchfun'>
+      <div className='searchfun'>
         <label htmlFor="search">Search by Location:</label>
         <input
           type="text"
@@ -42,7 +42,7 @@ export const Allshops = () => {
         />
       </div>
       <h1>Shops And Stores</h1>
-     
+
       <div className="product-list">
         {filteredShops.map((shop) => (
           <Link to={`/allshops/${shop._id}`} key={shop._id} className="product-card">
