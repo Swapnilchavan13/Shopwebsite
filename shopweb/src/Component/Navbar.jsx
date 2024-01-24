@@ -24,18 +24,6 @@ export const Navbar = ({ searchInput, onInputChange }) => {
         <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/122305813/original/a091d109740ab886828d56f5959dcc0eae571176/professional-shopping-logo-design.jpg" alt="" />
         </Link>
 
-        {/* <div id='searchdiv'>
-        <input
-          placeholder='Search Greyowl.in'
-          type="text"
-          list="types-list"
-          value={searchInput}
-          onChange={onInputChange}
-          onKeyDown={handleKeyDown}
-        />
-        <button onClick={handleSearch}>🔍</button>
-      </div> */}
-
 {isloggedin ? (
         <Link to="addshops">
           <h3>Add Shop</h3>
