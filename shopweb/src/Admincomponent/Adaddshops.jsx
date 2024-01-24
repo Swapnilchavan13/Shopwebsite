@@ -93,8 +93,6 @@ export const Adaddshops = () => {
   const [title5, setTitle5] = useState('');
 
 
-
-
   const handleAddShop = () => {
     const apiUrl = 'http://62.72.59.146:3010/addShop';
 
