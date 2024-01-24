@@ -13,7 +13,6 @@ export const Adaddshops = () => {
     setUploadCompleted(uploadStatus);
   }, []);
 
-
   const [formData, setFormData] = useState({
     image_one: '',
     image_two: '',
