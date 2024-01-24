@@ -92,7 +92,6 @@ export const Adaddshops = () => {
   const [title4, setTitle4] = useState('');
   const [title5, setTitle5] = useState('');
 
-
   const handleAddShop = () => {
     const apiUrl = 'http://62.72.59.146:3010/addShop';
 
@@ -153,12 +152,9 @@ export const Adaddshops = () => {
   const storedData = localStorage.getItem('uploadedData') || '{}';
   const allimgnvid = JSON.parse(storedData);
 
-
-
   return (
 
     <div>
-
       <Addnavbar />
       <div className="add-shops-container">
 
@@ -340,7 +336,6 @@ export const Adaddshops = () => {
               </div>
             ) : null}
 
-
             <br />
             {allimgnvid.image_five ? (
 
@@ -366,7 +361,6 @@ export const Adaddshops = () => {
                 />
               </div>
             ) : null}
-
 
             <button type="button" onClick={handleAddShop} className="submit-button">
               Add Shop
