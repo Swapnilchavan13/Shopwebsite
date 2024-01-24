@@ -12,12 +12,6 @@ export const Navbar = ({ searchInput, onInputChange }) => {
         window.location.reload();
     };
 
-    // const handleKeyDown = (e) => {
-    //     if (e.key === 'Enter') {
-    //         handleSearch();
-    //     }
-    // };
-
   return (
     <div className='maindiv'>
         <Link to="/">
