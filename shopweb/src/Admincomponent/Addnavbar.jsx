@@ -14,6 +14,9 @@ export const Addnavbar = () => {
       <Link to='/admin9049/adallshops'>
       <h2>All Shop</h2>
       </Link>
+      <Link to='/admin9049/adshops'>
+      <h2>My Shops</h2>
+      </Link>
     </div>
   )
 }
