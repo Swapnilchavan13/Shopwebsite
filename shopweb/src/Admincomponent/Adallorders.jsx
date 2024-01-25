@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../Styles/orders.css'; // Import the CSS file
 import { Addnavbar } from './Addnavbar';
 
 export const Adallorders = () => {
-  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,8 +51,9 @@ export const Adallorders = () => {
             <table className="order-table">
               <thead>
                 <tr>
-                  <th>Order ID</th>
+                  {/* <th>Order ID</th> */}
                   <th>Date</th>
+                  <th>User Name</th>
                   <th>Total Cost</th>
                   <th>Payment Option</th>
                   <th>Payment Status</th>
@@ -65,8 +64,9 @@ export const Adallorders = () => {
               <tbody>
                 {orders.map(order => (
                   <tr key={order._id}>
-                    <td>{order._id}</td>
+                    {/* <td>{order._id}</td> */}
                     <td>{order.date}</td>
+                    <td>{order.username}</td>
                     <td>₹{order.totalCost}/-</td>
                     <td>{order.paymentOption}</td>
                     <td>{order.paymentStatus ? 'Successful' : 'Pending'}</td>

@@ -8,6 +8,9 @@ export const Paymentpage = () => {
     const [paymentOption, setPaymentOption] = useState('upi');
     const [date, setDateRange] = useState("");
 
+    const username = localStorage.getItem('username');
+
+
     useEffect(() => {
       const currentDate = new Date();
       const endDate = new Date(currentDate);
@@ -41,6 +44,7 @@ export const Paymentpage = () => {
 
         const paymentData = {
             uid,
+            username,
             selectedProducts,
             totalCost,
             paymentOption,
