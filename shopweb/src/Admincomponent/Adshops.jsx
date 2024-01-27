@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Addnavbar } from './Addnavbar';
 
 export const Adshops = () => {
   const [userShops, setUserShops] = useState([]);
@@ -28,8 +29,9 @@ export const Adshops = () => {
   }, [uid]);
 
   return (
+    <>
+    <Addnavbar />
     <div className="products-container">
-     
       <h1>My Shops And Stores</h1>
       <div className="product-list">
         {userShops.map((shop) => (
@@ -45,5 +47,6 @@ export const Adshops = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
