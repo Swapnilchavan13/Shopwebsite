@@ -1,0 +1,33 @@
+.user-list-container {
+    /* max-width: 600px; */
+    margin: auto;
+    padding: 20px;
+}
+
+.user-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .adbutton {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .adbutton:hover {
+    background-color: #c82333;
+  }
+  

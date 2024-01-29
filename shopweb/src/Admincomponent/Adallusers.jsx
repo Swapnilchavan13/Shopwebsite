@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Addnavbar } from './Addnavbar';
+import '../Styles/addallusers.css';
 
 export const Adallusers = () => {
   const [users, setUsers] = useState([]);
@@ -25,18 +27,27 @@ export const Adallusers = () => {
   };
 
   return (
-    <div>
+    <>
+      <Addnavbar />
+    <div className="user-list-container">
       <h2>User List</h2>
-      <ul>
+      <ul className="user-list">
         {users.map(user => (
-          <li key={user._id}>
-            <strong>Username:</strong> {user.username}, 
-            <strong> Number:</strong> {user.usernumber}, 
-            <strong> Password:</strong> {user.userpassword}
-            <button onClick={() => handleDeleteUser(user._id)}>Delete</button>
+          <li key={user._id} className="user-item">
+            <div>
+              <strong>Username:</strong> {user.username}
+            </div>
+            <div>
+              <strong>Number:</strong> {user.usernumber}
+            </div>
+            <div>
+              <strong>Password:</strong> {user.userpassword}
+            </div>
+            <button className='adbutton' onClick={() => handleDeleteUser(user._id)}>Delete</button>
           </li>
         ))}
       </ul>
     </div>
+    </>
   );
 };
