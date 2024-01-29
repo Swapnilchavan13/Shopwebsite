@@ -27,8 +27,8 @@ export const Register = () => {
         });
         return;
       }
-      
-      const response = await fetch('http://localhost:3010/userdata', {
+
+      const response = await fetch('http://62.72.59.146:3010/userdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
