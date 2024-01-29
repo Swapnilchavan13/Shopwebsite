@@ -7,7 +7,7 @@ export const Home = () => {
 
   return (
     <>
-      {isloggedin ? (
+      {/* {isloggedin ? (
         <Link to="addshops">
           <h1>Add Shop</h1>
         </Link>
@@ -15,7 +15,7 @@ export const Home = () => {
         <Link to="login">
           <h1>Login to Add Shop</h1>
         </Link>
-      )}
+      )} */}
       <Allshops />
     </>
   );
