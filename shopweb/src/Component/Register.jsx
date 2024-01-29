@@ -13,7 +13,22 @@ export const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://62.72.59.146:3010/userdata', {
+      // Validate mobile number
+      if (!/^\d{10}$/.test(number)) {
+        toast.error('Mobile number must be 10 digits', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          draggable: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return;
+      }
+      
+      const response = await fetch('http://localhost:3010/userdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
