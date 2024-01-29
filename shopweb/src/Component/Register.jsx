@@ -24,11 +24,12 @@ export const Register = () => {
           userpassword: password,
         }),
       });
-
-      if (response.ok) {
-        // Registration successful, you can handle the success here
-
-        toast.success('User registered successfully', {
+  
+      const result = await response.json();
+  
+      // Check the result and show an alert if needed
+      if (result.success) {
+        toast.success(result.message, {
           position: "top-center",
           autoClose: 800,
           hideProgressBar: false,
@@ -38,16 +39,13 @@ export const Register = () => {
           progress: undefined,
           theme: "light",
         });
-
+  
         // Optionally, you can navigate to another page after successful registration
-
         setTimeout(() => {
           navigate('/login');
         }, 2000);
-
       } else {
-        // Registration failed, handle the error
-        toast.error('Failed to register user', {
+        toast.error(result.message, {
           position: "top-center",
           autoClose: 800,
           hideProgressBar: false,
@@ -57,12 +55,12 @@ export const Register = () => {
           progress: undefined,
           theme: "light",
         });
-
       }
     } catch (error) {
       console.error('Error during registration:', error);
     }
   };
+  
 
   return (
     <div id='logindiv'>

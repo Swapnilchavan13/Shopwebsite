@@ -15,6 +15,7 @@ import { Adallshops } from './Admincomponent/Adallshops';
 import { Adaddshops } from './Admincomponent/Adaddshops';
 import { Adallorders } from './Admincomponent/Adallorders';
 import { Adshops } from './Admincomponent/Adshops';
+import { Adallusers } from './Admincomponent/Adallusers';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="admin9049/adallshops" element={<Adallshops />} />
         <Route path="admin9049/adallorders" element={<Adallorders />} />
         <Route path="admin9049/adshops" element={<Adshops />} />
+        <Route path="admin9049/adallusers" element={<Adallusers />} />
       </Routes>
     </BrowserRouter>
   );
