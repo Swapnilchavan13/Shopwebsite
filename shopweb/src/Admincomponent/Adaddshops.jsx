@@ -50,7 +50,7 @@ export const Adaddshops = () => {
         localStorage.setItem('uploadedData', JSON.stringify(data));
         alert("Shop Images Added")
 
-        localStorage.setItem('uploadCompleted', 'true'); // Save upload status to local storage
+        localStorage.setItem('uploadCompleted', 'true'); 
         window.location.reload();
 
       } else {
