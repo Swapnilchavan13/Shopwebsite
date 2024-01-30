@@ -88,7 +88,7 @@ export const Paymentpage = () => {
                     <div className='pdiv2' key={index}>
                         <img width="200px" src={product.imageSrc} alt={`Advertising ${product.advertisingSpace}`} className="selected-product-image" />
                         <br />
-                        Advertising {product.advertisingSpace}: {product.title} - ₹ {product.price}/- per month
+                        Advertising {product.advertisingSpace}: {product.title} -  <br />₹ {product.price}/- per month
                     </div>
                 ))}
             </div>

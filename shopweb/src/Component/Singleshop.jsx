@@ -162,7 +162,7 @@ export const Singleshop = () => {
                                     Advertising {product.advertisingSpace}: {product.title} - ₹ {product.price}/- per month
                                    <br />
                                     <button className='can' onClick={() => handleRemove(product.advertisingSpace)}>
-                                        Remove
+                                    Remove
                                     </button>
                                 </div>
                             ))}

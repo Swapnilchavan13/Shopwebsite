@@ -45,9 +45,12 @@
 
 .pdiv{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    width: min-content;
     padding: 20px;
     gap: 10px;
+    border-radius: 10px;
+    background-color: #accaad;
     border: 1px solid black;
 }
 

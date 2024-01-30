@@ -80,6 +80,7 @@ export const AddShops = () => {
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [dailyFootfall, setDailyFootfall] = useState('');
   const [price1, setPrice1] = useState('');
   const [price2, setPrice2] = useState('');
   const [price3, setPrice3] = useState('');
@@ -104,7 +105,8 @@ export const AddShops = () => {
       location: location,
       description: description,
       category: category,
-
+      dailyFootfall: dailyFootfall,
+      
       image_one: allimgnvid.image_one,
       image_two: allimgnvid.image_two,
       image_three: allimgnvid.image_three,
@@ -221,14 +223,99 @@ export const AddShops = () => {
             className="input-field"
           />
 
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="input-field"
-          />
+
+<label>Category:</label>
+<div>
+  <label>
+    <input
+      type="radio"
+      value="A+"
+      checked={category === 'A+'}
+      onChange={() => setCategory('A+')}
+    />
+    A+
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="A"
+      checked={category === 'A'}
+      onChange={() => setCategory('A')}
+    />
+    A
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="B+"
+      checked={category === 'B+'}
+      onChange={() => setCategory('B+')}
+    />
+    B+
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="B"
+      checked={category === 'B'}
+      onChange={() => setCategory('B')}
+    />
+    B
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="C"
+      checked={category === 'C'}
+      onChange={() => setCategory('C')}
+    />
+    C
+  </label>
+</div>
+
+
+<label>Estimate Daily Footfall:</label>
+<div>
+  <label>
+    <input
+      type="radio"
+      value="<50"
+      checked={dailyFootfall === '<50'}
+      onChange={() => setDailyFootfall('<50')}
+    />
+    &lt;50
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="50-100"
+      checked={dailyFootfall === '50-100'}
+      onChange={() => setDailyFootfall('50-100')}
+    />
+    50-100
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="100-150"
+      checked={dailyFootfall === '100-150'}
+      onChange={() => setDailyFootfall('100-150')}
+    />
+    100-150
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="150+"
+      checked={dailyFootfall === '150+'}
+      onChange={() => setDailyFootfall('150+')}
+    />
+    150+
+  </label>
+</div>
+
+
+          
 
           <br />
           <div className='imgdet'>
