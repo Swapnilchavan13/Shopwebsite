@@ -12,7 +12,9 @@ const ShopDetailsMap = ({ shop }) => {
       try {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(shop.location)}`);
         const data = await response.json();
-
+  
+        console.log('API Response:', data); // Log the API response
+  
         if (data.length > 0) {
           setCoordinates({
             latitude: parseFloat(data[0].lat),
@@ -25,9 +27,10 @@ const ShopDetailsMap = ({ shop }) => {
         console.error(`Error fetching coordinates for shop ${shop.title}:`, error);
       }
     };
-
+  
     fetchCoordinates();
   }, [shop.location, shop.title]);
+  
 
   console.log(coordinates)
 
