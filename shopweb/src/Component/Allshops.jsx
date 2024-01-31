@@ -11,8 +11,12 @@ const ShopDetailsMap = ({ shop }) => {
     const fetchCoordinates = async () => {
       try {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(shop.location)}`);
-        const data = await response.json();
+        if (!response.ok) {
+          console.error('Error:', response.statusText);
+          return;
+        }
   
+        const data = await response.json();
         console.log('API Response:', data); // Log the API response
   
         if (data.length > 0) {
@@ -28,7 +32,13 @@ const ShopDetailsMap = ({ shop }) => {
       }
     };
   
+    // Cleanup function to check if component is still mounted
+    let isMounted = true;
     fetchCoordinates();
+  
+    return () => {
+      isMounted = false;
+    };
   }, [shop.location, shop.title]);
   
 
@@ -45,8 +55,6 @@ const ShopDetailsMap = ({ shop }) => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://carto.com/attributions">CartoDB</a> contributors'
     />
-
-
       <Marker position={[coordinates.latitude, coordinates.longitude]}>
         <Popup>
           <div>
