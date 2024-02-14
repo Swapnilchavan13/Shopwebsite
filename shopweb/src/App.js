@@ -12,10 +12,10 @@ import { Paymentpage } from './Component/Paymentpage';
 import { Order } from './Component/Order';
 import { Admin } from './Component/Admin';
 import { Adallshops } from './Admincomponent/Adallshops';
-import { Adaddshops } from './Admincomponent/Adaddshops';
 import { Adallorders } from './Admincomponent/Adallorders';
 import { Adshops } from './Admincomponent/Adshops';
 import { Adallusers } from './Admincomponent/Adallusers';
+import { Adaddshops } from './Admincomponent/Adaddshops';
 
 
 function App() {
