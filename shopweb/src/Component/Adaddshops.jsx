@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/addshops.css';
-import { Addnavbar } from './Addnavbar';
+import { Addnavbar } from '../Admincomponent/Addnavbar';
 
 export const Adaddshops = () => {
 
