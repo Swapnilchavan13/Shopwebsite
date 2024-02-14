@@ -19,6 +19,8 @@ export const AddShops = () => {
     image_three: '',
     image_four: '',
     image_five: '',
+    video_one: '',
+
   });
 
   const handleFileChange = (event, field) => {
@@ -112,6 +114,8 @@ export const AddShops = () => {
       image_three: allimgnvid.image_three,
       image_four: allimgnvid.image_four,
       image_five: allimgnvid.image_five,
+      video_one : allimgnvid.video_one,
+    
 
       price1: price1,
       price2: price2,
@@ -185,6 +189,12 @@ export const AddShops = () => {
           <input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
           <br />
           {renderImagePreview('image_five')}
+          <br />
+
+          <h3>Add Video</h3>
+          <input type="file" onChange={(e) => handleFileChange(e, 'video_one')} />
+          <br />
+          {renderImagePreview('video_one')}
           <br />
 
 

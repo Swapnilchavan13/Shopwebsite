@@ -19,6 +19,7 @@ export const Adaddshops = () => {
     image_three: '',
     image_four: '',
     image_five: '',
+    video_one:''
   });
 
   const handleFileChange = (event, field) => {
@@ -76,6 +77,7 @@ export const Adaddshops = () => {
   };
 
 
+  const [title2, setTitle2] = useState('');
   const [shopName, setShopName] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
@@ -86,7 +88,6 @@ export const Adaddshops = () => {
   const [price4, setPrice4] = useState('');
   const [price5, setPrice5] = useState('');
   const [title1, setTitle1] = useState('');
-  const [title2, setTitle2] = useState('');
   const [title3, setTitle3] = useState('');
   const [title4, setTitle4] = useState('');
   const [title5, setTitle5] = useState('');
@@ -110,6 +111,8 @@ export const Adaddshops = () => {
       image_three: allimgnvid.image_three,
       image_four: allimgnvid.image_four,
       image_five: allimgnvid.image_five,
+      video_one: allimgnvid.video_one,
+
 
       price1: price1,
       price2: price2,
@@ -156,7 +159,6 @@ export const Adaddshops = () => {
     <div>
       <Addnavbar />
       <div className="add-shops-container">
-
         <div className="upload-images">
 
           <h2>Add Images of Shop</h2>
@@ -186,6 +188,12 @@ export const Adaddshops = () => {
             <input type="file" onChange={(e) => handleFileChange(e, 'image_five')} />
             <br />
             {renderImagePreview('image_five')}
+            <br />
+
+            <h1>Add Video</h1>
+            <input type="file" onChange={(e) => handleFileChange(e, 'video_one')} />
+            <br />
+            {renderImagePreview('video_one')}
             <br />
 
           </div>

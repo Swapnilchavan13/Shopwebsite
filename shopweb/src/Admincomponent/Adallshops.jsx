@@ -60,16 +60,20 @@ export const Adallshops = () => {
         <div className="product-list1">
           {filteredShops.map((shop) => (
             <div key={shop._id} className="product-card">
+              <div>
               <Link to={`/allshops/${shop._id}`} target="_blank">
                 <img src={shop.image_one} alt="" />
+              </Link>
                 <div>
                   <h2>{shop.title}</h2>
                   <p>Location: {shop.location}</p>
                   <p>Description: {shop.description}</p>
                   <p>Category: {shop.category}</p>
+                  <video width="300px" controls src={shop.video_one}></video>
                   <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
+
+              </div>
                 </div>
-              </Link>
             </div>
           ))}
         </div>

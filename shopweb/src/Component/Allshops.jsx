@@ -121,6 +121,10 @@ export const Allshops = () => {
                 <p>Location: {shop.location}</p>
                 <p>Description: {shop.description}</p>
                 <p>Category: {shop.category}</p>
+
+                 <video width="200px" controls src={shop.video_one}></video>
+                 
+               
               </div>
             </Link>
             {/* Render the ShopDetailsMap for each shop */}
