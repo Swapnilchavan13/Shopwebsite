@@ -4,3 +4,9 @@
     padding: 10px;
     background-color: rgb(226, 224, 224);
 }
+
+@media (max-width: 767px) {
+    .adnav{
+        font-size: small;
+    }
+}

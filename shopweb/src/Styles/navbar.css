@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 .maindiv {
     display: flex;
     align-items: center;
@@ -21,10 +22,26 @@
     height: 40px;
     width: 400px;
     border-radius: 10px;
-
 }
 
 #searchdiv button {
     height: 45px;
     width: 50px;
+}
+
+/* Media query for mobile view */
+@media (max-width: 767px) {
+    .maindiv {
+
+display: none;    }
+
+    .maindiv img {
+        margin-bottom: 15px;
+    }
+
+    #searchdiv input,
+    #searchdiv button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
