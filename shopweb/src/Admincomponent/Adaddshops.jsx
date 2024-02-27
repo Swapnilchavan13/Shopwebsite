@@ -113,6 +113,7 @@ export const Adaddshops = () => {
 
 
   const [title2, setTitle2] = useState('');
+  const [date, setDate] = useState('');
   const [shopName, setShopName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [phoneNo, setPhoneNo] = useState('');
@@ -145,6 +146,7 @@ export const Adaddshops = () => {
 
     const postData = {
       uid: uid,
+      date: date,
       title: shopName,
       location: location,
       description: description,
@@ -259,6 +261,15 @@ export const Adaddshops = () => {
         {uploadCompleted && (
           <form>
             <h2>Add Shops</h2>
+            <label htmlFor="shopName">Date</label>
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="input-field"
+            />
+
             <label htmlFor="shopName">Shop Name:</label>
             <input
               type="text"
