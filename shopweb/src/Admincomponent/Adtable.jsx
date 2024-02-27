@@ -29,6 +29,8 @@ export const Adtable = () => {
             <th>Contact No.</th>
             <th>Address</th>
             <th>Shop Details</th>
+            <th>Total Screens</th>
+            <th>Total Amount</th>
             <th>Category</th>
             <th>Amount</th>
             <th>Remark</th>
@@ -44,8 +46,10 @@ export const Adtable = () => {
               <td>{item.phoneNo}</td>
               <td>{item.location}</td>
               <td>{item.description}</td>
+              <td>{item.screen}</td>
+              <td>Rs. {item.cost * item.screen}</td>
               <td>{item.category}</td>
-              <td>{item.price1}</td>
+              <td>Rs. {item.price1}</td>
               <td>{item.remark}</td>
 
               <td>

@@ -118,6 +118,10 @@ export const Adaddshops = () => {
   const [phoneNo, setPhoneNo] = useState('');
   const [remark, setRemark] = useState('');  
 
+  const [screen, setScreen] = useState('');
+  const [cost, setCost] = useState('')
+
+
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [dailyFootfall, setDailyFootfall] = useState('');
@@ -147,6 +151,8 @@ export const Adaddshops = () => {
       category: category,
       dailyFootfall: dailyFootfall,
 
+      screen: screen,
+      cost: cost,
       remark: remark,
       ownerName:ownerName,
       phoneNo:phoneNo,
@@ -297,6 +303,24 @@ export const Adaddshops = () => {
               onChange={(e) => setDescription(e.target.value)}
               className="input-field"
             />
+            <label htmlFor="screen">Number Of Screens</label>
+            <input
+              type="number"
+              id="screen"
+              value={screen}
+              onChange={(e) => setScreen(e.target.value)}
+              className="input-field"
+            />
+
+            <label htmlFor="remark">Cost per Screen</label>
+            <input
+              type="number"
+              id="cost"
+              value={cost}
+              onChange={(e) => setCost(e.target.value)}
+              className="input-field"
+            />
+            
 
             <label htmlFor="remark">Remark:</label>
             <input
