@@ -24,6 +24,7 @@ export const Adtable = () => {
       <table className="ad-table">
         <thead>
           <tr>
+            <th>Date</th>
             <th>Shop Title</th>
             <th>Owner name</th>
             <th>Contact No.</th>
@@ -41,6 +42,7 @@ export const Adtable = () => {
         <tbody>
           {data.map((item) => (
             <tr key={item._id}>
+              <td>{item.date}</td>
               <td>{item.title}</td>
               <td>{item.ownerName}</td>
               <td>{item.phoneNo}</td>
