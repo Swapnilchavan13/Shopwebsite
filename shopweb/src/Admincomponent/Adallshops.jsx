@@ -55,9 +55,10 @@ export const Adallshops = () => {
             placeholder="Enter location..."
           />
         </div>
-        <h1>Shops And Stores</h1>
+        <h1>Shops And Stores -{filteredShops.length}</h1>
 
         <div className="product-list1">
+          
           {filteredShops.map((shop) => (
             <div key={shop._id} className="product-card">
               <div>
@@ -74,7 +75,7 @@ export const Adallshops = () => {
                   <p>Daily Footfall: {shop.dailyFootfall}</p>
                   <p>Remark: {shop.remark}</p>
                   <video width="300px" controls src={shop.video_one}></video>
-                  <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
+                  {/* <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button> */}
 
               </div>
                 </div>

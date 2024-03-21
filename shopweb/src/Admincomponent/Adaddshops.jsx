@@ -9,7 +9,6 @@ export const Adaddshops = () => {
   const [uploadCompleted, setUploadCompleted] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
-
   useEffect(() => {
     const uploadStatus = localStorage.getItem('uploadCompleted') === 'true';
     setUploadCompleted(uploadStatus);
@@ -90,7 +89,7 @@ export const Adaddshops = () => {
     
       const data = JSON.parse(new TextDecoder('utf-8').decode(responseData));
     
-      console.log(data);
+      console.log(data);  
       localStorage.setItem('uploadedData', JSON.stringify(data));
       alert("Shop Images Added");
     
@@ -111,7 +110,6 @@ export const Adaddshops = () => {
     return null;
   };
 
-
   const [title2, setTitle2] = useState('');
   const [date, setDate] = useState('');
   const [shopName, setShopName] = useState('');
@@ -121,7 +119,6 @@ export const Adaddshops = () => {
 
   const [screen, setScreen] = useState('');
   const [cost, setCost] = useState('')
-
 
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
@@ -165,7 +162,6 @@ export const Adaddshops = () => {
       image_four: allimgnvid.image_four,
       image_five: allimgnvid.image_five,
       video_one: allimgnvid.video_one,
-
 
       price1: price1,
       price2: price2,
