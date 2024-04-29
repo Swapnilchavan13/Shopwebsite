@@ -10,7 +10,7 @@ export const Adtable = () => {
       try {
         const response = await fetch('http://62.72.59.146:3010/allshops');
         const result = await response.json();
-        setData(result);
+        setData(result.reverse());
       } catch (error) {
         console.error('Error fetching data:', error);
       }

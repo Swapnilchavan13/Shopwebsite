@@ -15,7 +15,7 @@ export const Adallshops = () => {
     try {
       const response = await fetch('http://62.72.59.146:3010/allshops');
       const data = await response.json();
-      setShops(data);
+      setShops(data.reverse());
     } catch (error) {
       console.error('Error fetching products:', error);
     }
@@ -38,7 +38,8 @@ export const Adallshops = () => {
   };
 
   const filteredShops = shops.filter((shop) =>
-    shop.location.toLowerCase().includes(searchQuery.toLowerCase())
+    shop.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    shop.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -46,13 +47,13 @@ export const Adallshops = () => {
       <Addnavbar />
       <div className="products-container">
         <div className='searchfun'>
-          <label htmlFor="search">Search by Location:</label>
+          <label htmlFor="search">Search by Location or Shop Name:</label>
           <input
             type="text"
             id="search"
             value={searchQuery}
             onChange={handleSearch}
-            placeholder="Enter location..."
+            placeholder="Enter location or shop name..."
           />
         </div>
         <h1>Shops And Stores -{filteredShops.length}</h1>
