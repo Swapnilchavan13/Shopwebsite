@@ -41,7 +41,6 @@ function App() {
         <Route path="admin9049/adshops" element={<Adshops />} />
         <Route path="admin9049/adallusers" element={<Adallusers />} />
         <Route path="admin9049/adtable" element={<Adtable />} />
-
       </Routes>
     </BrowserRouter>
   );
