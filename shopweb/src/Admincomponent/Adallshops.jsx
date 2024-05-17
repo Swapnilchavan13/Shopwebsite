@@ -68,6 +68,7 @@ export const Adallshops = () => {
               </Link>
                 <div>
                   <h2>{shop.title}</h2>
+                  <p>User Name: {shop.userName}</p>
                   <p>Owner Name: {shop.ownerName}</p>
                   <p>Contact No: {shop.phoneNo}</p>
                   <p>Location: {shop.location}</p>
@@ -77,7 +78,6 @@ export const Adallshops = () => {
                   <p>Remark: {shop.remark}</p>
                   <video width="300px" controls src={shop.video_one}></video>
                   <button className='can' onClick={() => handleDelete(shop._id)}>Delete</button>
-
               </div>
                 </div>
             </div>
